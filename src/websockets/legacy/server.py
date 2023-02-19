@@ -918,7 +918,7 @@ class Serve:
             await stop
 
     Args:
-        ws_handler: connection handler. It receives the WebSocket connection,
+        ws_handler: connection handler; it receives the WebSocket connection,
             which is a :class:`WebSocketServerProtocol`, in argument.
         host: network interfaces the server is bound to;
             see :meth:`~asyncio.loop.create_server` for details.
