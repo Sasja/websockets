@@ -1,4 +1,6 @@
 import contextlib
+import pathlib
+import tempfile
 import threading
 import time
 import unittest
@@ -24,3 +26,9 @@ class ThreadTestCase(unittest.TestCase):
         finally:
             thread.join(MS)
             self.assertFalse(thread.is_alive())
+
+
+@contextlib.contextmanager
+def temp_unix_socket_path():
+    with tempfile.TemporaryDirectory() as temp_dir:
+        yield str(pathlib.Path(temp_dir) / "websockets")
